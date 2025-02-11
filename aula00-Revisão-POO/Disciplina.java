@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class Disciplina{
     private String nomeDisciplina;
@@ -44,6 +45,19 @@ public class Disciplina{
     
     public List<Professor> getprofessores(){
         return this.professores;
+    }
+
+    public void  addAluno(Aluno aluno){
+        this.alunos.add(aluno);
+    }
+
+    public void  addProfessor(Professor professor){
+        this.professores.add(professor);
+    }
+
+    @Override
+    public String toString(){
+        return "Disciplina {"+ getNomeDisciplina() + ", alunos= " + this.getAlunos() + ", professores= " + this.getprofessores();
     }
 
 }

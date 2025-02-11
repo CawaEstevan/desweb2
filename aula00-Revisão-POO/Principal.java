@@ -7,6 +7,12 @@ public class Principal{
 
         Professor professor1 = new Professor ("Matheus",26,525525252,25);
         System.out.println(professor1.toString());
+
+        Professor professor2 = new Professor ("Math",23,52525252,23);
+        System.out.println(professor2.toString());
+
+        Disciplina disciplina = new Disciplina ("Web 2");
+        System.out.println(disciplina.toString());
     }
     
 }
