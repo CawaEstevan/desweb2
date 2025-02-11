@@ -2,14 +2,11 @@ public class Principal{
 
     public static void main(String[] args) {
 
-        Pessoa objPessoa =  new Pessoa();
-        System.out.println(objPessoa.toString());  
+        Aluno aluno01 = new Aluno("Cawa",35,215551652,1004);
+        System.out.println(aluno01.toString()); 
 
-        Pessoa objPessoa2 =  new Pessoa("Rafael", 34);
-        System.out.println(objPessoa2.toString());  
-
-        Pessoa objPessoa3 =  new Pessoa("Gabriel", 27, 1236789548);
-        System.out.println(objPessoa3.toString());  
+        Professor professor1 = new Professor ("Matheus",26,525525252,25);
+        System.out.println(professor1.toString());
     }
     
 }

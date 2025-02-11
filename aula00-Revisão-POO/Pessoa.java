@@ -45,6 +45,6 @@ public class Pessoa{
     public String toString(){
         return "Pessoa{Nome=" + this.getNome() + 
                 ", Idade=" + this.getIdade() +
-                ", CPF=" + this.getCpf() +"}";
+                ", CPF=" + this.getCpf();
     }
 }
