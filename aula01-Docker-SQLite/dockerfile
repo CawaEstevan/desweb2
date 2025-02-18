@@ -12,3 +12,4 @@ WORKDIR /data
 
 #ENTRADA PADRÃO DO CONTEINER 
 CMD [ "sqlite3" ]
+
