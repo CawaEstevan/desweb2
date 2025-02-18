@@ -1,0 +1,14 @@
+# usando uma imagem base leve
+
+FROM alpine:latest
+
+# INSTALAÇÃO SQLITE
+
+RUN apk add --no-cache sqlite
+
+#DIRETORIO DE TRABALHO
+
+WORKDIR /data
+
+#ENTRADA PADRÃO DO CONTEINER 
+CMD [ "sqlite3" ]
