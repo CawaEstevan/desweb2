@@ -16,26 +16,26 @@ public class Principal {
         
         EntityManager em = emf.createEntityManager();
         
-        // Criar instâncias conforme solicitado na atividade
+      
         Pessoa pessoa = new Pessoa("José", 35);
         Vendedor vendedor = new Vendedor("Cawa", 20, 1); 
         Cliente cliente = new Cliente("Rafael", 34, 1);
         
-        em.getTransaction().begin(); // iniciar transação com banco de dados
+        em.getTransaction().begin(); 
         em.persist(pessoa);
         em.persist(vendedor);
         em.persist(cliente);
         
-        // Consulta para recuperar todas as pessoas
+        
         Query consultaP = em.createQuery("select p from Pessoa p");
         ArrayList<Pessoa> listaP = (ArrayList<Pessoa>) consultaP.getResultList();
         
-        em.getTransaction().commit(); // confirmar as alterações realizadas
+        em.getTransaction().commit();
         
         emf.close();
         em.close();
         
-        // Exibindo resultados
+        
         for (Pessoa p: listaP) {
             System.out.println(p);
         }
