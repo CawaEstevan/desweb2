@@ -1,17 +1,16 @@
 version: '3.8'
 services:
-  postgres:
+  postgres_ex1:
     image: postgres:15
-    container_name: postgres_tabunica
+    container_name: postgres_ex1
     restart: always
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: bd_jpa_tabunica
+      POSTGRES_DB: bd_jpa_ex1
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
-
+      - postgres-data-ex1:/var/lib/postgresql/data
 volumes:
-  postgres-data:
+  postgres-data-ex1:
