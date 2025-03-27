@@ -12,3 +12,16 @@ docker ps
 docker stop numero_DOCKER 
 docker rm  numero_DOCKER 
 docker ps -a
+
+
+
+virtualização
+docker-compose up -d --build
+ docker exec -it postgres_container psql -U root projeto
+
+
+
+
+
+
+
