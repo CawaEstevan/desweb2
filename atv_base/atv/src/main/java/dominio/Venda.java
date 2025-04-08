@@ -1,6 +1,10 @@
 package dominio;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,30 +16,30 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Venda {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "valorTotal")
     private Double valorTotal;
     
-    @ManyToMany
-    @JoinTable(
-        name = "venda_produto",
-        joinColumns = @JoinColumn(name = "venda_id"),
-        inverseJoinColumns = @JoinColumn(name = "produto_id")
-    )
-    private List<Produto> produtos;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "venda_produto",
+               joinColumns = @JoinColumn(name = "venda_id"),
+               inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    private List<Produto> produtos = new ArrayList<>();
     
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
     
     public Venda() {
-        this(0.0);
+        this(0.0, null);
     }
     
-    public Venda(Double valorTotal) {
+    public Venda(Double valorTotal, Cliente cliente) {
         setValorTotal(valorTotal);
+        setCliente(cliente);
     }
     
     public Long getId() {
@@ -72,6 +76,6 @@ public class Venda {
     
     @Override
     public String toString() {
-        return "Venda [id=" + id + ", valorTotal=" + valorTotal + ", cliente=" + (cliente != null ? cliente.getNome() : "null") + "]";
+        return "Venda [id=" + id + ", valorTotal=" + valorTotal + ", cliente=" + cliente + "]";
     }
 }

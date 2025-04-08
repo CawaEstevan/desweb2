@@ -13,91 +13,96 @@ import dominio.Produto;
 import dominio.Venda;
 
 public class Principal {
-
     public static void main(String[] args) {
-            
         EntityManagerFactory emf = null;
         EntityManager em = null;
         
         try {
-            emf = Persistence.createEntityManagerFactory("aula-jpa");
+            emf = Persistence.createEntityManagerFactory("atv-jpa");
             em = emf.createEntityManager();
-            
-            // Criando produtos
-            Produto produto1 = new Produto("Notebook", 3500.0);
-            Produto produto2 = new Produto("Smartphone", 2000.0);
-            Produto produto3 = new Produto("Monitor", 800.0);
-            
-            // Criando clientes
-            Cliente cliente1 = new Cliente("Rafael");
-            Cliente cliente2 = new Cliente("Guilherme");
-            
-            // Criando vendas
-            Venda venda1 = new Venda(5500.0); // Notebook + Smartphone
-            Venda venda2 = new Venda(800.0);  // Monitor
-            Venda venda3 = new Venda(2000.0); // Smartphone
-            
-            // Associando produtos às vendas
-            venda1.setProdutos(Arrays.asList(produto1, produto2));
-            venda2.setProdutos(Arrays.asList(produto3));
-            venda3.setProdutos(Arrays.asList(produto2));
-            
-            // Associando vendas aos clientes
-            venda1.setCliente(cliente1);
-            venda2.setCliente(cliente1);
-            venda3.setCliente(cliente2);
             
             em.getTransaction().begin();
             
-            // Persistindo os objetos
-            em.persist(produto1);
-            em.persist(produto2);
-            em.persist(produto3);
+            // Criando produtos
+            Produto p1 = new Produto("Camiseta", 49.90);
+            Produto p2 = new Produto("Calça", 99.90);
+            Produto p3 = new Produto("Tênis", 199.90);
+            Produto p4 = new Produto("Meias", 19.90);
             
-            em.persist(cliente1);
-            em.persist(cliente2);
+            em.persist(p1);
+            em.persist(p2);
+            em.persist(p3);
+            em.persist(p4);
             
-            em.persist(venda1);
-            em.persist(venda2);
-            em.persist(venda3);
+            // Criando clientes
+            Cliente c1 = new Cliente("João");
+            Cliente c2 = new Cliente("Maria");
+            Cliente c3 = new Cliente("Pedro");
+            Cliente c4 = new Cliente("Ana");
             
-            // Consultando os dados
-            Query consultaProdutos = em.createQuery("select p from Produto p");
-            ArrayList<Produto> listaProdutos = (ArrayList<Produto>)consultaProdutos.getResultList();
+            em.persist(c1);
+            em.persist(c2);
+            em.persist(c3);
+            em.persist(c4);
             
-            Query consultaVendas = em.createQuery("select v from Venda v");
-            ArrayList<Venda> listaVendas = (ArrayList<Venda>)consultaVendas.getResultList();
+            // Criando vendas
+            Venda v1 = new Venda(149.80, c1);
+            v1.setProdutos(Arrays.asList(p1, p2));
             
-            Query consultaClientes = em.createQuery("select c from Cliente c");
-            ArrayList<Cliente> listaClientes = (ArrayList<Cliente>)consultaClientes.getResultList();
+            Venda v2 = new Venda(219.80, c2);
+            v2.setProdutos(Arrays.asList(p3, p4));
             
+            Venda v3 = new Venda(249.80, c3);
+            v3.setProdutos(Arrays.asList(p1, p3));
+            
+            Venda v4 = new Venda(119.80, c4);
+            v4.setProdutos(Arrays.asList(p2, p4));
+            
+            em.persist(v1);
+            em.persist(v2);
+            em.persist(v3);
+            em.persist(v4);
+            
+            // Confirma as alterações no banco de dados
             em.getTransaction().commit();
             
-            // Exibindo os resultados
+            // Consultas JPQL - Consultas são feitas após o commit
+            Query consultaProdutos = em.createQuery("select produto from Produto produto");
+            ArrayList<Produto> listaProdutos = (ArrayList<Produto>) consultaProdutos.getResultList();
+            
+            Query consultaClientes = em.createQuery("select cliente from Cliente cliente");
+            ArrayList<Cliente> listaClientes = (ArrayList<Cliente>) consultaClientes.getResultList();
+            
+            Query consultaVendas = em.createQuery("select venda from Venda venda");
+            ArrayList<Venda> listaVendas = (ArrayList<Venda>) consultaVendas.getResultList();
+            
+            // Exibindo resultados ANTES de fechar as conexões
             System.out.println("=== PRODUTOS ===");
-            for(Produto produto: listaProdutos) {
-                System.out.println(produto);
-            }
-        
-            System.out.println("\n=== VENDAS ===");
-            for(Venda venda: listaVendas) {
-                System.out.println(venda);
+            for (Produto p : listaProdutos) {
+                System.out.println(p);
             }
             
             System.out.println("\n=== CLIENTES ===");
-            for(Cliente cliente: listaClientes) {
-                System.out.println(cliente);
+            for (Cliente c : listaClientes) {
+                System.out.println(c);
             }
+            
+            System.out.println("\n=== VENDAS ===");
+            for (Venda v : listaVendas) {
+                System.out.println(v);
+            }
+            
         } catch (Exception e) {
-            if(em != null && em.getTransaction().isActive()) {
+            if (em != null && em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
             e.printStackTrace();
         } finally {
-            if(em != null) {
+            // Fechando conexões apenas no finally
+            if (em != null && em.isOpen()) {
                 em.close();
             }
-            if(emf != null) {
+            if (emf != null && emf.isOpen()) {
                 emf.close();
             }
         }

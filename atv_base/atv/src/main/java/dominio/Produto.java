@@ -1,6 +1,9 @@
 package dominio;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,15 +12,18 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Produto {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "nome")
     private String nome;
+    
+    @Column(name = "preco")
     private Double preco;
     
     @ManyToMany(mappedBy = "produtos")
-    private List<Venda> vendas;
+    private List<Venda> vendas = new ArrayList<>();
     
     public Produto() {
         this("", 0.0);
