@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 @Entity
+
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
