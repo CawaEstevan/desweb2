@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_vendas
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: bd_sistema_vendas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-vendas-data:/var/lib/postgresql/data
+volumes:
+  postgres-vendas-data:

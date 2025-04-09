@@ -1,54 +1,56 @@
 package dominio;
 
-public class Produto{
-    private long Id;
-    private Sring nome;
-    private double preco;
-    private Lista<Venda> vendas;
+import java.util.List;
 
-    public Produto(){
+public class Produto {
+    private long id;
+    private String nome;
+    private double preco;
+    private List<Venda> vendas;
+
+    public Produto() {
         this("", 0);
     }
 
-    public Produto(String nome, double preco){
+    public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
     }
 
-    public void setId(log Id){
-        this.Id = Id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public long getId(){
-        return this.Id;
+    public long getId() {
+        return this.id;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public void setPreco(double preco){
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
-    public double getPreco(){
+    public double getPreco() {
         return this.preco;
     }
 
-    public void setVenda(List<Venda> vendas){
+    public void setVendas(List<Venda> vendas) {
         this.vendas = vendas;
     }
 
-    public List<Venda> getVenda(){
+    public List<Venda> getVendas() {
         return this.vendas;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Produto[nome=" + nome + ", preco=" + preco + "]";
     }
 }
