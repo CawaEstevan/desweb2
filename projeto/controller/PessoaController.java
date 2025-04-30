@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.projeto.service.PessoaService;
 import com.example.projeto.model.Pessoa;
 
-
 @RestController
 @RequestMapping("/api/pessoas")
 public class PessoaController{
-
+    
     private final PessoaService pessoaService;
 
     public PessoaController(PessoaService pessoaService){
         this.pessoaService = pessoaService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping
     public List<Pessoa> listarPessoas(){
         return pessoaService.listarPessoas();
     }
 
+    @GetMapping("/{id}")
     public ResponseEntity<Pessoa> buscarPessoa(@PathVariable Long id){
-        return pessoaService.buscarPessoa(id);
+        return pessoaService.buscarPorId(id)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
@@ -40,6 +40,7 @@ public class PessoaController{
         return pessoaService.salvarPessoa(pessoa);
     }
 
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPessoa(@PathVariable Long id){
         pessoaService.deletarPessoa(id);
         return ResponseEntity.noContent().build();
