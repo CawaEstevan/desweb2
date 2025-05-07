@@ -29,5 +29,6 @@ HELP.md  mvnw  mvnw.cmd  pom.xml  src
 @CawaEstevan ➜ /workspaces/desweb2/aulaSpring02/projeto (main) $ ls
 HELP.md  mvnw  mvnw.cmd  pom.xml  src
 
-
+chmod +x mvnw
+./mvnw spring-boot:run
 
