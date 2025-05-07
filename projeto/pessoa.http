@@ -15,7 +15,7 @@ GET {{ base_url }}/api/pessoas
 Accept: application/json
 
 ### Buscar pessoa por ID
-GET {{ base_url }}/api/pessoas/2
+GET {{ base_url }}/api/pessoas/3
 Accept: application/json
 
 ### Atualizar pessoa (PUT)
