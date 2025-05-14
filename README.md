@@ -29,6 +29,10 @@ HELP.md  mvnw  mvnw.cmd  pom.xml  src
 @CawaEstevan ➜ /workspaces/desweb2/aulaSpring02/projeto (main) $ ls
 HELP.md  mvnw  mvnw.cmd  pom.xml  src
 
+
+SPRING3 ATV produto segunda - feira
+docker-compose up -d
+ls
 chmod +x mvnw
 ./mvnw spring-boot:run
 
