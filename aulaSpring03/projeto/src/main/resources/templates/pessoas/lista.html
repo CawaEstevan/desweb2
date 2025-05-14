@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Pessoas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+
+    <div th:replease="fragments/navbar :: navbar"></div>
+
+    <main>
     <h1>Lista de Pessoas</h1>
 
     <a th:href="@{pessoas/cadastrar}">Cadastrar Nova Pessoa</a>
@@ -29,5 +34,11 @@
             </tr>
         </tbody>
     </table>
+
+    </main>
+
+        <footer>
+            <p>2025 Meu APP</p>
+        </footer>
 </body>
 </html>
