@@ -29,7 +29,7 @@
 
             <div>
                 <label>Valor: </label>
-                <input type="number" th:field="*{valor}" />
+                <input type="number" th:field="*{valor}" step="0.01"/>
                 <div th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}"></div>
             </div>
 
