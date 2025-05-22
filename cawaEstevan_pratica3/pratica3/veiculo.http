@@ -1,5 +1,10 @@
 # Definição de variáveis
-@base_url = https://seu-codespace-8080.githubpreview.dev
+@base_url = https://jubilant-fiesta-q7q564g95gx5c9v4x-8080.app.github.dev
+
+
+### Listar todos os veículos
+GET {{base_url}}/api/veiculos
+Content-Type: application/json
 
 ### Inserir novo veículo
 POST {{base_url}}/api/veiculos
@@ -27,8 +32,8 @@ Content-Type: application/json
 
 {
     "modelo": "Volkswagen Jetta",
-    "ano": 2021,
-    "valor": 78000.00
+    "ano": 2024,
+    "valor": 110000.00
 }
 
 ### Inserir quarto veículo
@@ -36,19 +41,18 @@ POST {{base_url}}/api/veiculos
 Content-Type: application/json
 
 {
-    "modelo": "Hyundai HB20",
-    "ano": 2024,
-    "valor": 65000.00
+    "modelo": "Ford Focus",
+    "ano": 2021,
+    "valor": 75000.00
 }
-
-### Listar todos os veículos
-GET {{base_url}}/api/veiculos
-Accept: application/json
 
 ### Buscar veículo por ID
 GET {{base_url}}/api/veiculos/1
-Accept: application/json
+Content-Type: application/json
 
-### Remover veículo
+### Deletar veículo
 DELETE {{base_url}}/api/veiculos/1
-Accept: */*
+Content-Type: application/json
+
+
+
