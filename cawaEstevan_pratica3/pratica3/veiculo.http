@@ -1,0 +1,54 @@
+# Definição de variáveis
+@base_url = https://seu-codespace-8080.githubpreview.dev
+
+### Inserir novo veículo
+POST {{base_url}}/api/veiculos
+Content-Type: application/json
+
+{
+    "modelo": "Honda Civic",
+    "ano": 2023,
+    "valor": 95000.00
+}
+
+### Inserir segundo veículo
+POST {{base_url}}/api/veiculos
+Content-Type: application/json
+
+{
+    "modelo": "Toyota Corolla",
+    "ano": 2022,
+    "valor": 85000.00
+}
+
+### Inserir terceiro veículo
+POST {{base_url}}/api/veiculos
+Content-Type: application/json
+
+{
+    "modelo": "Volkswagen Jetta",
+    "ano": 2021,
+    "valor": 78000.00
+}
+
+### Inserir quarto veículo
+POST {{base_url}}/api/veiculos
+Content-Type: application/json
+
+{
+    "modelo": "Hyundai HB20",
+    "ano": 2024,
+    "valor": 65000.00
+}
+
+### Listar todos os veículos
+GET {{base_url}}/api/veiculos
+Accept: application/json
+
+### Buscar veículo por ID
+GET {{base_url}}/api/veiculos/1
+Accept: application/json
+
+### Remover veículo
+DELETE {{base_url}}/api/veiculos/1
+Accept: */*

@@ -1,5 +1,6 @@
 # Definição de variáveis (ambiente “local” do REST Client)
-@base_url = https://fantastic-enigma-7vr64vp69j653xg9g-8080.app.github.dev
+
+@base_url = https://jubilant-fiesta-q7q564g95gx5c9v4x-8080.app.github.dev
 
 ### Inserir nova pessoa
 POST {{ base_url }}/api/pessoas

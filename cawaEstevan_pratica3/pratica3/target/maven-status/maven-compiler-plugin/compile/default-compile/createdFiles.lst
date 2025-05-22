@@ -1,0 +1,6 @@
+com/example/pratica3/repository/VeiculoRepository.class
+com/example/pratica3/Pratica3Application.class
+com/example/pratica3/model/Veiculo.class
+com/example/pratica3/service/VeiculoService.class
+com/example/pratica3/controller/VeiculoController.class
+com/example/pratica3/controller/VeiculoWebController.class
