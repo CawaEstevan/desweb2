@@ -1,5 +1,5 @@
 ### Criar novo usuário com senha criptografada e role USER
-POST http://localhost:8080/api/usuarios
+POST https://silver-space-yodel-7v9jw54rj4v7fxpp6-8080.app.github.dev
 Content-Type: application/json
 
 {
@@ -8,5 +8,5 @@ Content-Type: application/json
 }
 
 ### Listar usuários
-GET http://localhost:8080/api/usuarios
+GET https://silver-space-yodel-7v9jw54rj4v7fxpp6-8080.app.github.dev
 Accept: application/json
