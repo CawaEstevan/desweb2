@@ -1,0 +1,12 @@
+### Criar novo usuário com senha criptografada e role USER
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+  "username": "rafael",
+  "password": "senha123"
+}
+
+### Listar usuários
+GET http://localhost:8080/api/usuarios
+Accept: application/json
