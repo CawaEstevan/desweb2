@@ -1,3 +1,4 @@
+// src/main/java/com/example/projeto/controller/WebController.java
 package com.example.projeto04.controller;
 
 import org.springframework.stereotype.Controller;
