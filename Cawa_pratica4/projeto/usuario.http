@@ -1,5 +1,5 @@
 # Definição de variáveis (ambiente “local” do REST Client)
-@base_url = https://laughing-trout-wr97wvvq97qjfg44x-8080.app.github.dev
+@base_url = https://super-duper-potato-g479qp75pqr2w7gq-8080.app.github.dev
 
 ### 1. Criar novo usuário
 POST {{base_url}}/api/usuarios
