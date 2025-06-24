@@ -27,7 +27,8 @@ ls
 chmod +x mvnw
 ./mvnw spring-boot:run
 
-sdk install java 21.0.6-amzn
+
+
 
 
 
